@@ -1,0 +1,456 @@
+*{ 
+	/*Sätter margin och padding till 0 samt Oswald som typsnitt
+	inuti min selector.*/
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+.header{ 
+	/*Förutom att sätta storlek, position etc inuti min header-div
+	använder jag mig av linear-gradient för bättre övergångar av färger
+	samt länkar till en background-image via url.*/
+	min-height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url(bil_mekaniker.jpg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+nav{
+	/*Lägger lite padding, utrymme mellan punkter och text
+	samt flyttar listan till höger.*/
+	display: flex;
+	padding: 2% 6%;
+	justify-content: space-between;
+	align-items: center;
+}
+nav img{
+	width: 150px;
+}
+.my-nav{
+	/*Flex sätts till 1 för att ta upp all plats
+	på raden.*/
+	flex: 1;
+	text-align: right;
+}
+.my-nav ul li{
+	/*Tar bort listpunkterna, sätter listan horisontellt och ändrar positionen.*/
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;
+	position: relative;
+}
+.my-nav ul li a{
+	/*Ändrar färg och storlekt på list-texten och 
+	tar bort dekorationer*/
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+}
+.my-nav ul li::after{
+	/*Använder mig av selectorn after för att
+	skapa en linje under navbar med resten av css-koden*/
+	content: " ";
+	width: 0%; /*Gör att linjen försvinner*/
+	height: 2px;
+	background: #800;
+	display: block;
+	margin: auto;
+	transition: 1s; /*Låter linjen träda fram efter 1s för att få en snygg effekt*/
+}
+.my-nav ul li:hover::after{
+	/*Med hover::after kommer linjen dyka upp igen
+	eftersom width är inställt till 100%*/
+	width: 100%;
+}
+.my-box{
+	/*Ändrar textstorlek, färg och position och med hjälp av
+	transform: translate hamnar texten i mitten av denna div*/
+	width: 90%;
+	color: #fff;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.my-box h1{
+	font-size: 50px;
+}
+.my-box p{
+	margin: 10px 0 40px;
+	font-size: 14px;
+	color: #fff;
+}
+.hero-btn{
+	/* Fixar knappens utseende med färg, storlek, position etc.*/
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 12px 34px;
+	font-size: 13px;
+	background: transparent;
+	position: relative;
+	cursor: pointer;
+}
+.hero-btn:hover{
+	/*Här får hover-effekten färg och transition 1s så det får
+	en snygg effekt när användaren för muspekaren över knappen*/
+	border: 1px;
+	background: #800;
+	transition: 1s;
+}
+
+nav .fa{
+	display: none;
+}
+
+@media(max-width: 700px){
+	/*Här görs sidan mobilvänlig. All kod som
+	skrivs inuti är anpassat för 700px*/
+	.my-box h1{
+	font-size: 20px; 
+	overflow-x: hidden;
+	}
+	.my-nav ul li{
+		display: block;
+	}
+	.my-nav{
+		/*Designar min navbar i mobilläge*/
+		position: fixed;
+		background: #f44336;
+		height: 100vh;
+		width: 200px;
+		top: 0;
+		right: -200px;
+		text-align: left;
+		z-index: 2;
+	}
+	nav .fa{
+		/*Design för ikoner som jag kallar på*/
+		display: block;
+		color: #fff;
+		margin: 10px;
+		font-size: 22px;
+		cursor: pointer;
+	}
+	.my-nav ul{
+		padding: 30px;
+	}
+}
+
+/*Nedan följer styling av rubriker och paragrafer för 
+textrutorna på förstasidan. Alla vanliga stylingattributer 
+för bredd, positionering, storlek, tyngd, färg m.m. förekommer.*/
+.bast{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+}
+h1{
+	font-size: 36px;
+	font-weight: 600;
+}
+
+p{
+	color: #777;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 22px;
+	padding: 10px;
+}
+.row{
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.bast-col{
+	flex-basis: 31%;
+	background: #b222;
+	margin-bottom: 5%;
+	padding: 20px 12px;
+	box-sizing: border-box;
+}
+h3{
+	text-align: center;
+	font-weight: 600;
+	margin: 10px 0;
+}
+.bast-col:hover{
+	/*Jag kallar på min div som textrutorna är skrivna i,
+	jag använder sen mig av hover-effekten samt box-shadow med 
+	rgb-attributen för att sätta färg på skuggan. Med dessa 
+	effekter blir det en snygg reaktion när muspekaren hålls
+	över nån av textrutorna.*/
+	box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+@media(max-width:  700px){
+	.row{
+		flex-direction: column;
+	}
+}
+
+/*Här gör jag samma sak som tidigare, ställer 
+in de vanliga stylingeffekterna på min div samt 
+text och bild.*/
+.tjanster{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+}
+.tjanster-ett{
+	flex-basis: 31%;
+
+	margin-bottom: 5%;
+	text-align: left;
+}
+.tjanster-ett img{
+	width: 100%;
+
+}
+.tjanster-ett p{
+	padding: 0;
+}
+.tjanster-ett h3{
+	margin-top: 16px;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+.bkt{
+	/*Ställer in färgeffekter med hjälp av rgb-attributer på 
+	bakgrundsbilden samt centrerar den och ger den storleken cover.*/
+	margin: 100px auto;
+	width: 80%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url(images/bil_mekaniker2.jpg);
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	padding: 100px 0;
+}
+.bkt h1{
+	color: #fff;
+	margin-bottom: 40px;
+	padding: 0;
+}
+@media(max-width: 700px){
+	.bkt h1{
+		/*Mobilanpassar rubriken i bakgrundsbilden*/
+		font-size: 24px;
+	}
+}
+
+/*Sätter som vanligt bredd, position, padding, färg m.m. för allt.
+Först stylas rubriken, sen paragrafen och till sist färgen till 
+footern med texten i.*/
+.f-oss{
+	width: 100%;
+	text-align: center;
+	padding: 30px 0;
+}
+.f-oss h4{
+	margin-bottom: 25px;
+	margin-top: 20px;
+	font-weight: 600;
+}
+footer{
+	padding: 20px;
+	margin-top: 20px;
+	color: #ffffff;
+	background-color: #800;
+	text-align: center;
+}
+footer p{
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+	font-style: italic;
+}
+
+/*OM OSS SIDA*/
+
+/*Här börjar nästa html-sida. 
+Det första jag gör är att styla min nya header. Ger den de vanliga
+attributerna samt rgba där jag länkar en bild via url som fungerar som bakgrund.
+Denna header kommer kallas på i alla andra html-sidor också men skrivas om för
+varje sida.*/
+.sub-header{
+	height: 60vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4, 9, 30,0.7),rgba(4, 9, 30, 0.7)),url(images/bil_mekaniker2.jpg);
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+}
+.sub-header h1{
+	margin-top: 70px;
+}
+
+/*Snyggar till området runt min section*/
+.about-us{
+	width: 80%;
+	margin: auto;
+	padding-top: 80px;
+	padding-bottom: 50px;
+}
+.about-col{ 
+	/*Begränsar texten med flex-basis*/
+	flex-basis: 48%;
+	padding: 30px 2px;
+}
+.about-us img{
+	width: 100%;
+}
+.about-col h1{
+	padding-top: 0;
+}
+.about-col p{
+	padding: 15px 0 25px;
+}
+
+.red-btn{
+	/*Geren border-färg till min knapp via min button-class.*/
+	border: 1px solid #800;
+	background: transparent;
+	color: #800;
+}
+
+.red-btn:hover{
+	/*Via hover-effekten samt ger den vit färg syns texten och 
+	knappen tydligare*/
+	color: #fff;
+}
+
+/*UTSTÄLLNINGAR*/
+
+/*Nu börjar en ny html-sida. Som tidigare skriver jag den 
+vanligaste css-koden för min första div och nedan följer lite
+storlek för bild, styling för rubriker samt text i paragrafer.*/
+.uts-stall{
+	width: 80%;
+	margin: auto;
+	padding: 60px 0;
+}
+.left{
+	flex-basis: 65%;
+}
+.left img{
+	width: 100%;
+}
+.left h2{
+	color: #222;
+	font-weight: 600;
+	margin: 30px 0;
+}
+.left p{
+	color: #999;
+	padding: 0;
+}
+
+.right{
+	flex-basis: 32%;
+
+}
+.right h3{
+	background: #800;
+	color: #fff;
+	padding: 7px 0;
+	font-size: 16px;
+	margin-bottom: 20px;
+
+}
+.right div{
+	/*I denna div korrigerar jag mina kolumner jag gjort med span-taggen. 
+	Använder mig av samma saker jag gjort tidigare samt box-sizing som är ny
+	vilket låter mig kontrollera storleken på min box.*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #555;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+/*Här ställs storlek och utseende på kommentarsboxarna in och snyggar till
+min textarea samt button.*/
+.comment-box{
+	border: 1px solid #ccc;
+	margin: 50px 0;
+	padding: 10px 20px;
+}
+.comment-box h3{
+	text-align: left;	
+}
+.comment-form input, .comment-form textarea{
+	width: 100%;
+	padding: 10px;
+	margin: 15px 0;
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	background: #f0f0f0;
+}
+.comment-form button{
+	margin: 10px 0;
+}
+@media(max-width: 700px){
+	/*Gör stycket mobilanpassat med hjälp av att ändra storleken på h1-texten.*/
+	.sub-header h1{
+		font-size: 24px;
+	}
+}
+
+
+/*Kontakt*/
+
+/*Säter vanliga storleksinställningar*/
+.location{
+	width: 80%;
+	margin: auto;
+	padding: 80px 0;
+
+/*Gör storleken på kartan till 100%*/
+}
+.location iframe{
+	width: 100%;
+
+}
+.contact-us{
+	width: 80%;
+	margin: auto;
+}
+.contact-col{
+	flex-basis: 48%;
+	margin-bottom:30px;
+
+/*Nedanför korrigerar jag storlek, position, färg m.m.
+på alla mina divs som står för kontaktuppgifterna i 
+programmet.*/
+}
+.contact-col div{
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.contact-col div .fa{
+	font-size: 28px;
+	color: #f44336;
+	margin: 10px;
+	margin-right: 30px;
+}
+.contact-col div p{
+	padding: 50;
+}
+.contact-col div h5{
+	font-size: 20px;
+	margin-bottom: 5px;
+	color: #555;
+	font-weight: 400;
+}
+
+
